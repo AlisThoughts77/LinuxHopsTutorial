@@ -94,3 +94,6 @@ class-9 syllabus
 #appimages
 
 onlyoffice https://www.onlyoffice.com/download-desktop.aspx
+
+systemctl disable lightdm.service
+systemctl enable gdm.service
