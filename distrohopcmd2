@@ -50,7 +50,8 @@ curl -fsSL https://rpm.librewolf.net/librewolf-repo.repo | pkexec tee /etc/yum.r
 
 2. install package
 sudo dnf install librewolf
-
+************zen browser************
+bash <(curl https://updates.zen-browser.app/appimage.sh)
 **********************vscodium***********************
 1.
 sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
