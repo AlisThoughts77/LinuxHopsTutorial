@@ -1,0 +1,96 @@
+get the text file
+wget https://github.com/AlisThoughts77/LinuxHopsTutorial/archive/refs/heads/main.zip
+
+!!!!!!!!!!!************/////////the one-liner command///////////////////************!!!!!!!!!!
+
+*******************dnf configuration****************** -/
+1.Find the fastest mirror
+echo 'fastestmirror=1' | sudo tee -a /etc/dnf/dnf.conf
+2. Enable Parallel Downloads
+echo 'max_parallel_downloads=10' | sudo tee -a /etc/dnf/dnf.conf
+
+**********************rpmfusion**************************   -/
+
+1.
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+2.
+sudo dnf config-manager --enable fedora-cisco-openh264
+
+3.
+sudo dnf update @core
+
+**********************rpmfusion-multimedia************************
+
+1.
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+2.
+sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+
+*********************native-installs*******************
+sudo dnf install dnf-plugins-core git gtk-murrine-engine xfce4-whiskermenu-plugin google-roboto-fonts google-roboto-mono-fonts file-roller gnome-software bleachbit inkscape nautilus simplescreenrecorder flatpak fuse curl cabextract xorg-x11-font-utils fontconfig menulibre nautilus gdm gnome-text-editor xfce4-docklike-plugin gnome-clocks
+
+*******************flatpak***********************
+1. note : not necessary
+sudo dnf install flatpak
+
+2.
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo 
+
+!!!!!---RESTART---!!!!!
+
+*************************flatpak installs**********************
+
+flatpak install flathub com.github.ryonakano.pinit com.rafaelmardojai.Blanket com.github.unrud.VideoDownloader org.gnome.Showtime org.gnome.Decibels com.notesnook.Notesnook io.github.realmazharhussain.GdmSettings im.bernard.Memorado io.github.alainm23.planify org.gnome.Loupe org.onlyoffice.desktopeditors org.jousse.vincent.Pomodorolm
+
+**************************librewolf-install**************************
+
+1. add repo
+curl -fsSL https://rpm.librewolf.net/librewolf-repo.repo | pkexec tee /etc/yum.repos.d/librewolf.repo
+
+2. install package
+sudo dnf install librewolf
+
+**********************vscodium***********************
+1.
+sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+
+2.
+printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=download.vscodium.com\nbaseurl=https://download.vscodium.com/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg\nmetadata_expire=1h" | sudo tee -a /etc/yum.repos.d/vscodium.repo
+
+3.
+sudo dnf install codium
+
+#brave-browser-install
+1.
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+2.
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+3.
+sudo dnf install brave-browser
+***************install rust**********
+1.
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+******************themes*****************
+1. Quogir Icons
+https://www.xfce-look.org/p/1296407/
+2. Rosepine GTK
+https://www.xfce-look.org/p/1810530/
+#other installs
+
+jetbrains font https://www.jetbrains.com/lp/mono/#how-to-install
+
+ms-fonts 
+
+sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+
+web bookmarks 
+books
+wallpapers
+rose-pine gtk theme
+class-9 syllabus
+
+#appimages
+
+onlyoffice https://www.onlyoffice.com/download-desktop.aspx
